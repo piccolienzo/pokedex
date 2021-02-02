@@ -1,5 +1,5 @@
 import "./App.css";
-import "./assets/svg/loading.svg";
+import loadingsgv from "./assets/svg/loading.svg";
 
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -23,7 +23,7 @@ function App() {
 					<OptionButton text="dashboard"></OptionButton>
 				</Link>
 
-				<Suspense fallback="loading.svg">
+				<Suspense fallback={loadingsgv}>
 					<Switch>
 						<Route exact path="/">
 							<h1>Inicio</h1>
