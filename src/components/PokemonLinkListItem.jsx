@@ -2,16 +2,36 @@ import React from "react";
 
 export const PokemonLinkListItem = (props) => {
 	return (
-		<div>
-			<h2>
-				{props.pokemon.id} - {props.pokemon.name}
-			</h2>
-			<img
-				style={{ width: "200px", height: "200px" }}
-				src={
-					props.pokemon["sprites"]["other"]["official-artwork"]["front_default"]
-				}
-			></img>
+		<div className="card mb-3" style={{ maxWidth: "60vw" }}>
+			<div className="row g-0">
+				<div className="col-md-4 text-center">
+					<img
+						className="r"
+						style={{ width: "200px", height: "200px" }}
+						src={
+							props.pokemon["sprites"]["other"]["official-artwork"][
+								"front_default"
+							]
+						}
+					></img>
+				</div>
+				<div className="col-md-8">
+					<div className="card-body ">
+						<br />
+						<h2 className="card-title text-center">{props.pokemon.name}</h2>
+						<p className="card-text text-center">
+							Pokemon N° {props.pokemon.id}
+						</p>
+
+						<br />
+						<br />
+
+						<p className="card-text text-center">
+							<small className="text-muted">Click for more info</small>
+						</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 };
