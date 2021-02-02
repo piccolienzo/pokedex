@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "./assets/svg/loading.svg";
+
+import React, { Suspense } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import PokemonlistPage from "./pages/PokemonListPage";
+import OptionButton from "./components/OptionButton";
+
+import "./App.css";
+import { PokemonInfo } from "./pages/PokemonInfo";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<React.Fragment>
+			<Router>
+				<Link to="/">
+					<OptionButton text="Inicio"></OptionButton>
+				</Link>
+				<Link to="/list">
+					<OptionButton text="Listado"></OptionButton>
+				</Link>
+				<Link to="/dashboard">
+					<OptionButton text="dashboard"></OptionButton>
+				</Link>
+
+				<Suspense fallback="loading.svg">
+					<Switch>
+						<Route exact path="/">
+							<h1>Inicio</h1>
+						</Route>
+						<Route path="/list">
+							<h1>Poke List</h1>
+							<PokemonlistPage></PokemonlistPage>
+						</Route>
+						<Route path="/dashboard">
+							<h1>Dashboard List</h1>
+						</Route>
+						<Route path="/pokemon/:id">
+							<PokemonInfo></PokemonInfo>
+						</Route>
+					</Switch>
+				</Suspense>
+			</Router>
+		</React.Fragment>
+	);
 }
 
 export default App;
