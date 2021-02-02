@@ -58,7 +58,7 @@ const PokemonList = () => {
 						"cargando..."
 					)}
 				</div>
-				<div className="col ">
+				<div className="col " style={{ maxWidth: "20vw" }}>
 					{next !== "" ? (
 						<TriangleButton
 							lado="right"

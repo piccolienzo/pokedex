@@ -1,15 +1,40 @@
 .triangle-button-right {
-	width: 0;
-	height: 0;
-	border-top: 50px solid transparent;
-	border-left: 100px solid white;
-	border-bottom: 50px solid transparent;
+	width: 10vw;
+	height: 10vw;
+	max-width: 10vw;
+	background-color: white;
+	font-size: 3em;
+	text-align: center;
+	vertical-align: middle;
 }
 
 .triangle-button-left {
-	width: 0;
-	height: 0;
-	border-top: 50px solid transparent;
-	border-right: 100px solid white;
-	border-bottom: 50px solid transparent;
+	width: 10vw;
+	height: 10vw;
+	max-width: 10vw;
+	background-color: white;
+	font-size: 3em;
+	text-align: center;
+	vertical-align: middle;
+}
+
+@media only screen and (max-width: 400px) {
+	.triangle-button-left {
+		width: 10vw;
+		height: 10vw;
+		max-width: 10vw;
+		background-color: white;
+		font-size: 2em;
+		text-align: center;
+		vertical-align: middle;
+	}
+	.triangle-button-right {
+		width: 10vw;
+		height: 10vw;
+		max-width: 10vw;
+		background-color: white;
+		font-size: 2em;
+		text-align: center;
+		vertical-align: middle;
+	}
 }
