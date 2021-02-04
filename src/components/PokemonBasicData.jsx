@@ -4,7 +4,7 @@ import "../assets/css/PokemonBasicData.css";
 export const PokemonBasicData = (props) => {
 	const { pokemon } = props;
 	return (
-		<table style={{ margin: "0" }}>
+		<table style={{ margin: "0 auto" }}>
 			<thead>
 				<tr>
 					<th>Base Info</th>
