@@ -1,0 +1,21 @@
+.flex-container {
+	display: flex;
+	background-color: white;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.flex-box-100 {
+	text-align: center;
+	width: 100%;
+}
+.flex-box-60 {
+	text-align: center;
+	align-items: center;
+	flex-grow: 10;
+}
+.flex-box-40 {
+	text-align: center;
+	flex-grow: 4;
+}

@@ -1,24 +1,24 @@
 import React from "react";
 import "../assets/css/TriangleButton.css";
+import leftarrow from "../assets/svg/left-arrow.svg";
+import rightarrow from "../assets/svg/right-arrow.svg";
 
 export const TriangleButton = (props) => {
 	if (props.lado === "right") {
 		return (
-			<button
-				className="btn triangle-button-right position-sticky top-50 end-0 translate-middle-y "
+			<img
+				src={rightarrow}
+				className=" triangle-button-right position-sticky top-50 start-100 translate-middle-y"
 				onClick={() => props.onClick()}
-			>
-				►
-			</button>
+			></img>
 		);
 	} else if (props.lado === "left") {
 		return (
-			<button
-				className="btn triangle-button-left position-sticky top-50 start-50 translate-middle-y"
+			<img
+				src={leftarrow}
+				className=" triangle-button-left position-sticky top-50 start-0 translate-middle-y "
 				onClick={() => props.onClick()}
-			>
-				◄
-			</button>
+			></img>
 		);
 	}
 };

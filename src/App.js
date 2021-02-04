@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import PokemonlistPage from "./pages/PokemonListPage";
 
 import "./App.css";
-import { PokemonInfo } from "./pages/PokemonInfo";
+import PokemonInfoPage from "./pages/PokemonInfoPage";
 
 function App() {
 	return (
@@ -27,7 +27,7 @@ function App() {
 							<span className="navbar-toggler-icon"></span>
 						</button>
 						<div className="collapse navbar-collapse" id="navbarText">
-							<ul className="navbar-nav me-auto mb-2 mb-lg-0">
+							<ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
 								<li className="nav-item">
 									<Link className="nav-link" activeClassName="active" to="/">
 										Inicio
@@ -35,7 +35,7 @@ function App() {
 								</li>
 								<li className="nav-item">
 									<Link
-										className="nav-link"
+										className="nav-link "
 										activeClassName="active"
 										to="/list"
 									>
@@ -52,7 +52,6 @@ function App() {
 									</Link>
 								</li>
 							</ul>
-							<span className="navbar-text">Pokedex made with React</span>
 						</div>
 					</div>
 				</nav>
@@ -63,7 +62,6 @@ function App() {
 							<h1>Inicio</h1>
 						</Route>
 						<Route path="/list">
-							<h1>Poke List</h1>
 							<div className="container">
 								<PokemonlistPage></PokemonlistPage>
 							</div>
@@ -72,7 +70,7 @@ function App() {
 							<h1>Dashboard List</h1>
 						</Route>
 						<Route path="/pokemon/:id">
-							<PokemonInfo></PokemonInfo>
+							<PokemonInfoPage></PokemonInfoPage>
 						</Route>
 					</Switch>
 				</Suspense>

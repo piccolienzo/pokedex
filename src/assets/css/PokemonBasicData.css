@@ -1,0 +1,21 @@
+td {
+	text-align: end;
+	font-size: 1.5em;
+}
+th {
+	text-align: start;
+	font-size: 1.5em;
+}
+@media only screen and (max-width: 800px) {
+	th,
+	td {
+		font-size: 1.25em;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	th,
+	td {
+		font-size: 1em;
+	}
+}

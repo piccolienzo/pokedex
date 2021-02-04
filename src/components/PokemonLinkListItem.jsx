@@ -18,8 +18,11 @@ export const PokemonLinkListItem = (props) => {
 				<div className="col-md-8">
 					<div className="card-body ">
 						<br />
-						<h2 className="card-title text-center">{props.pokemon.name}</h2>
-						<p className="card-text text-center">
+						<h2 className="card-title text-center" style={{ color: "black" }}>
+							{props.pokemon.name.charAt(0).toUpperCase() +
+								props.pokemon.name.slice(1)}
+						</h2>
+						<p className="card-text text-center" style={{ color: "black" }}>
 							Pokemon N° {props.pokemon.id}
 						</p>
 

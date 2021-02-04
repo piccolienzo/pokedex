@@ -4,6 +4,7 @@ import PokemonListItem from "./PokemonListItem";
 
 import "../assets/css/TriangleButton.css";
 import { TriangleButton } from "./TriangleButton";
+import { PokemonListDisplay } from "./PokemonListDisplay";
 
 const PokemonList = () => {
 	const [pokemons, setPokemons] = useState([]);
@@ -37,7 +38,7 @@ const PokemonList = () => {
 	return (
 		<React.Fragment>
 			<div className="row">
-				<div className="col" style={{ maxWidth: "20vw" }}>
+				<div className="col " style={{ maxWidth: "20vw" }}>
 					{previous !== "" ? (
 						<TriangleButton
 							lado="left"
@@ -47,13 +48,9 @@ const PokemonList = () => {
 						""
 					)}
 				</div>
-				<div className="col-6">
+				<div className="col-8">
 					{pokemons.results !== undefined ? (
-						<div>
-							{pokemons.results.map((pokemon) => (
-								<PokemonListItem pokemon={pokemon}></PokemonListItem>
-							))}
-						</div>
+						<PokemonListDisplay pokemons={pokemons}></PokemonListDisplay>
 					) : (
 						"cargando..."
 					)}

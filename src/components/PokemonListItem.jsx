@@ -21,7 +21,7 @@ const PokemonListItem = (props) => {
 	return (
 		<div>
 			{pokemon !== undefined ? (
-				<Link to={`/pokemon/${pokemon.id}`}>
+				<Link to={`/pokemon/${pokemon.id}`} style={{ textDecoration: "none" }}>
 					<PokemonLinkListItem pokemon={pokemon}></PokemonLinkListItem>
 				</Link>
 			) : (
