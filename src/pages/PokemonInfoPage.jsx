@@ -7,16 +7,16 @@ const PokemonInfoPage = () => {
 	const [pokemon, setPokemon] = useState();
 
 	useEffect(() => {
+		const getPokemon = async () => {
+			const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+
+			const pokemon = await data.json();
+			setPokemon(pokemon);
+		};
 		getPokemon();
 		return () => {};
 	}, []);
 
-	const getPokemon = async () => {
-		const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-
-		const pokemon = await data.json();
-		setPokemon(pokemon);
-	};
 	return (
 		<div className="row">
 			<div className="col " style={{ maxWidth: "20vw" }}></div>

@@ -7,6 +7,9 @@ import PokemonlistPage from "./pages/PokemonListPage";
 
 import "./App.css";
 import PokemonInfoPage from "./pages/PokemonInfoPage";
+import { PokemonHomePage } from "./pages/PokemonHomePage";
+import { PokemonSearchPage } from "./pages/PokemonSearchPage";
+import { PokemonTypePage } from "./pages/PokemonTypePage";
 
 function App() {
 	return (
@@ -14,7 +17,7 @@ function App() {
 			<Router>
 				<nav className="navbar navbar-expand-lg navbar-light bg-light">
 					<div className="container-fluid">
-						<a className="navbar-brand">Pokedex</a>
+						<span className="navbar-brand">Pokedex</span>
 						<button
 							className="navbar-toggler"
 							type="button"
@@ -46,9 +49,9 @@ function App() {
 									<Link
 										className="nav-link"
 										activeClassName="active"
-										to="/dashboard"
+										to="/search"
 									>
-										Dashboard
+										Search
 									</Link>
 								</li>
 							</ul>
@@ -59,18 +62,26 @@ function App() {
 				<Suspense fallback={loadingsgv}>
 					<Switch>
 						<Route exact path="/">
-							<h1>Inicio</h1>
+							<div className="container">
+								<PokemonHomePage />
+							</div>
 						</Route>
 						<Route path="/list">
 							<div className="container">
 								<PokemonlistPage></PokemonlistPage>
 							</div>
 						</Route>
-						<Route path="/dashboard">
-							<h1>Dashboard List</h1>
+						<Route path="/search/" exact>
+							<PokemonSearchPage></PokemonSearchPage>
+						</Route>
+						<Route path="/search/:search">
+							<PokemonSearchPage></PokemonSearchPage>
 						</Route>
 						<Route path="/pokemon/:id">
 							<PokemonInfoPage></PokemonInfoPage>
+						</Route>
+						<Route path="/type/:id">
+							<PokemonTypePage></PokemonTypePage>
 						</Route>
 					</Switch>
 				</Suspense>

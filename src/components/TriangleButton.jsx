@@ -8,6 +8,7 @@ export const TriangleButton = (props) => {
 		return (
 			<img
 				src={rightarrow}
+				alt="Triangle Button Right"
 				className=" triangle-button-right position-sticky top-50 start-100 translate-middle-y"
 				onClick={() => props.onClick()}
 			></img>
@@ -16,6 +17,7 @@ export const TriangleButton = (props) => {
 		return (
 			<img
 				src={leftarrow}
+				alt="Triangle Button Left"
 				className=" triangle-button-left position-sticky top-50 start-0 translate-middle-y "
 				onClick={() => props.onClick()}
 			></img>

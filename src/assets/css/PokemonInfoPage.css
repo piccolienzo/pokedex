@@ -17,5 +17,6 @@
 }
 .flex-box-40 {
 	text-align: center;
+	padding: 3%;
 	flex-grow: 4;
 }

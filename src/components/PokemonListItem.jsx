@@ -4,18 +4,15 @@ import { PokemonLinkListItem } from "./PokemonLinkListItem";
 
 const PokemonListItem = (props) => {
 	const [pokemon, setPokemon] = useState();
-
+	const [url] = useState(props.pokemon.url);
 	useEffect(() => {
 		const getPokemon = async () => {
-			const data = await fetch(props.pokemon.url);
+			const data = await fetch(url);
 
 			const pokemon = await data.json();
 			setPokemon(pokemon);
-
-			console.log(pokemon);
 		};
 		getPokemon();
-		return () => {};
 	}, []);
 
 	return (

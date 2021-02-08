@@ -8,6 +8,7 @@ export const PokemonLinkListItem = (props) => {
 					<img
 						className="r"
 						style={{ width: "100%" }}
+						alt="Pokemon List Item"
 						src={
 							props.pokemon["sprites"]["other"]["official-artwork"][
 								"front_default"

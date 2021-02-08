@@ -1,5 +1,5 @@
 import React from "react";
-import { PokemonType } from "./PokemonType";
+import { PokemonTypeBadge } from "./PokemonTypeBadge";
 import "../assets/css/PokemonBasicData.css";
 export const PokemonBasicData = (props) => {
 	const { pokemon } = props;
@@ -8,6 +8,9 @@ export const PokemonBasicData = (props) => {
 			<thead>
 				<tr>
 					<th>Base Info</th>
+				</tr>
+				<tr>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -32,7 +35,9 @@ export const PokemonBasicData = (props) => {
 				<tr>
 					<th>Type</th>
 					<td>
-						<PokemonType pokemon={pokemon} />
+						{pokemon.types.map((ptype) => (
+							<PokemonTypeBadge type={ptype.type} />
+						))}
 					</td>
 				</tr>
 			</tbody>
