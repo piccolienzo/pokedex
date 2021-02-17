@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { useParams } from "react-router-dom";
+import { Loading } from "../components/Loading";
 import { PokemonSearch } from "../components/PokemonSearch";
 
 const PokemonList = React.lazy(() => import("../components/PokemonList"));
@@ -22,35 +23,53 @@ export const PokemonSearchPage = () => {
 		};
 		if (search !== undefined) {
 			if (isNaN(search)) {
-				console.log(pokemons.length);
-
 				getPokemons();
 			} else {
-				console.log(pokemons.length);
-				console.log("Es un numero:" + pokemons);
 				getPokemons();
 			}
 		}
 
-		return () => {};
+		return () => {
+			setPokemons([]);
+		};
 	}, []);
 
 	return (
 		<React.Fragment>
 			<div className="row">
 				<div className="col " style={{ maxWidth: "20vw" }}></div>
-				<div className="col-8">
-					<div className="row">
+				<div
+					className="col-8"
+					style={{
+						backgroundColor: "white",
+						borderBottomLeftRadius: "10px",
+						borderBottomRightRadius: "10px",
+					}}
+				>
+					<div className="row" style={{ padding: "10%" }}>
 						<PokemonSearch></PokemonSearch>
 					</div>
 					<div className="row">
-						<Suspense fallback={<h1>Loading Search...</h1>}>
-							{pokemons.lenght !== 0 ? (
-								<PokemonList pokemons={pokemons}></PokemonList>
+						<Suspense fallback={<Loading></Loading>}>
+							{pokemons.length !== 0 ? (
+								<div>
+									<div style={{ textAlign: "center" }}>
+										<h3>
+											Results for '{search}' : {pokemons.length}
+										</h3>
+									</div>
+									<PokemonList pokemons={pokemons}></PokemonList>
+								</div>
+							) : search === undefined ? (
+								<div style={{ textAlign: "center" }}>
+									<h3>Search your Pokemon</h3>
+								</div>
 							) : (
-								<h2>
-									Resultados para {search} {pokemons.lenght}
-								</h2>
+								<div style={{ textAlign: "center" }}>
+									<h3>
+										Results for '{search}' : {pokemons.length}
+									</h3>
+								</div>
 							)}
 						</Suspense>
 					</div>

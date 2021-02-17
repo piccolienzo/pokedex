@@ -8,9 +8,9 @@ export const PokemonBasicData = (props) => {
 			<thead>
 				<tr>
 					<th>Base Info</th>
-				</tr>
-				<tr>
-					<th></th>
+					<td>
+						<strong>Value</strong>
+					</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -35,8 +35,8 @@ export const PokemonBasicData = (props) => {
 				<tr>
 					<th>Type</th>
 					<td>
-						{pokemon.types.map((ptype) => (
-							<PokemonTypeBadge type={ptype.type} />
+						{pokemon.types.map((ptype, index) => (
+							<PokemonTypeBadge key={index} type={ptype.type} />
 						))}
 					</td>
 				</tr>

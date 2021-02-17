@@ -5,11 +5,10 @@ export const PokemonSearch = () => {
 
 	const handleChange = (e) => {
 		setSearch(e.target.value);
-		console.log(e.target.value);
 	};
 	const onSubmitSearch = (e) => {
 		e.preventDefault();
-		console.log("busqueda ", search);
+
 		if (search !== "") {
 			window.location.replace(`/search/${search}`);
 		}
@@ -23,16 +22,12 @@ export const PokemonSearch = () => {
 						name="search"
 						type="text"
 						className="form-control form-control-lg"
-						style={{ width: "80%" }}
+						style={{}}
 						onChange={handleChange}
 						value={search}
 						placeholder="Poke Search"
 					></input>
-					<button
-						className="btn btn-lg btn-dark"
-						style={{ width: "20%" }}
-						type="submit"
-					>
+					<button className="btn btn-dark" style={{}} type="submit">
 						Search
 					</button>
 				</div>

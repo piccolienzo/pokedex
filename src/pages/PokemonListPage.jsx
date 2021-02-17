@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import PokemonList from "../components/PokemonList";
 import { TriangleButton } from "../components/TriangleButton";
 import "../assets/css/TriangleButton.css";
-import { PokemonSearch } from "../components/PokemonSearch";
+import { Loading } from "../components/Loading";
 
 const PokemonListPage = (props) => {
 	const [pokemons, setPokemons] = useState([]);
@@ -33,39 +33,53 @@ const PokemonListPage = (props) => {
 		setPreviousPage(pokemonlist.previous === null ? "" : pokemonlist.previous);
 	};
 	return (
-		<React.Fragment>
-			<div className="row">
-				<div className="col " style={{ maxWidth: "20vw" }}>
-					{previous !== "" ? (
-						<TriangleButton
-							lado="left"
-							onClick={() => togglePage(previous)}
-						></TriangleButton>
-					) : (
-						""
-					)}
-				</div>
-				<div className="col-8">
-					<div className="row">
-						{pokemons !== undefined ? (
-							<PokemonList pokemons={pokemons}></PokemonList>
+		<div>
+			<Suspense fallback={<Loading></Loading>}>
+				<div className="row">
+					<div className="col " style={{ maxWidth: "20vw" }}>
+						{previous !== "" ? (
+							<TriangleButton
+								lado="left"
+								onClick={() => togglePage(previous)}
+							></TriangleButton>
 						) : (
-							"cargando pagina..."
+							""
+						)}
+					</div>
+					<div className="col-8">
+						<div
+							style={{
+								borderRadius: "10px",
+								backgroundColor: "white",
+								textAlign: "center",
+								marginTop: "30px",
+								marginBottom: "10px",
+								padding: "5%",
+							}}
+						>
+							<h1>Pokemon List</h1>
+						</div>
+						<div className="row">
+							{pokemons !== undefined ? (
+								<PokemonList pokemons={pokemons}></PokemonList>
+							) : (
+								<Loading></Loading>
+							)}
+						</div>
+					</div>
+					<div className="col " style={{ maxWidth: "20vw" }}>
+						{next !== "" ? (
+							<TriangleButton
+								lado="right"
+								onClick={() => togglePage(next)}
+							></TriangleButton>
+						) : (
+							""
 						)}
 					</div>
 				</div>
-				<div className="col " style={{ maxWidth: "20vw" }}>
-					{next !== "" ? (
-						<TriangleButton
-							lado="right"
-							onClick={() => togglePage(next)}
-						></TriangleButton>
-					) : (
-						""
-					)}
-				</div>
-			</div>
-		</React.Fragment>
+			</Suspense>
+		</div>
 	);
 };
 

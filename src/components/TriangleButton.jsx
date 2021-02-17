@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../assets/css/TriangleButton.css";
 import leftarrow from "../assets/svg/left-arrow.svg";
 import rightarrow from "../assets/svg/right-arrow.svg";

@@ -2,7 +2,10 @@ import React from "react";
 
 export const PokemonLinkListItem = (props) => {
 	return (
-		<div className="card mb-3" style={{ maxWidth: "60vw" }}>
+		<div
+			className="card mb-3"
+			style={{ maxWidth: "60vw", borderRadius: "10px" }}
+		>
 			<div className="row g-0">
 				<div className="col-md-4 text-center">
 					<img

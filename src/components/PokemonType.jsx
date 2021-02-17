@@ -7,6 +7,7 @@ const PokemonType = (props) => {
 	const { type } = props;
 	return (
 		<div>
+			<h1>Type Info</h1>
 			<h2>
 				{type.id} - {FirstToUpper(type.name)}
 			</h2>
@@ -24,48 +25,48 @@ const PokemonType = (props) => {
 						<tr>
 							<th scope="row">Double damage from</th>
 							<td>
-								{type.damage_relations.double_damage_from.map((type) => (
-									<PokemonTypeBadge type={type}></PokemonTypeBadge>
+								{type.damage_relations.double_damage_from.map((type, index) => (
+									<PokemonTypeBadge key={index} type={type}></PokemonTypeBadge>
 								))}
 							</td>
 						</tr>
 						<tr>
 							<th scope="row">Double damage to</th>
 							<td>
-								{type.damage_relations.double_damage_to.map((type) => (
-									<PokemonTypeBadge type={type}></PokemonTypeBadge>
+								{type.damage_relations.double_damage_to.map((type, index) => (
+									<PokemonTypeBadge key={index} type={type}></PokemonTypeBadge>
 								))}
 							</td>
 						</tr>
 						<tr>
 							<th scope="row">Half damage from</th>
 							<td>
-								{type.damage_relations.half_damage_from.map((type) => (
-									<PokemonTypeBadge type={type}></PokemonTypeBadge>
+								{type.damage_relations.half_damage_from.map((type, index) => (
+									<PokemonTypeBadge key={index} type={type}></PokemonTypeBadge>
 								))}
 							</td>
 						</tr>
 						<tr>
 							<th scope="row">Half damage to</th>
 							<td>
-								{type.damage_relations.half_damage_to.map((type) => (
-									<PokemonTypeBadge type={type}></PokemonTypeBadge>
+								{type.damage_relations.half_damage_to.map((type, index) => (
+									<PokemonTypeBadge key={index} type={type}></PokemonTypeBadge>
 								))}
 							</td>
 						</tr>
 						<tr>
 							<th scope="row">No damage from</th>
 							<td>
-								{type.damage_relations.no_damage_from.map((type) => (
-									<PokemonTypeBadge type={type}></PokemonTypeBadge>
+								{type.damage_relations.no_damage_from.map((type, index) => (
+									<PokemonTypeBadge key={index} type={type}></PokemonTypeBadge>
 								))}
 							</td>
 						</tr>
 						<tr>
 							<th scope="row">No damage to</th>
 							<td>
-								{type.damage_relations.no_damage_to.map((type) => (
-									<PokemonTypeBadge type={type}></PokemonTypeBadge>
+								{type.damage_relations.no_damage_to.map((type, index) => (
+									<PokemonTypeBadge key={index} type={type}></PokemonTypeBadge>
 								))}
 							</td>
 						</tr>
@@ -75,8 +76,8 @@ const PokemonType = (props) => {
 			<div>
 				<h2>Pokemon</h2>
 				<ul>
-					{type.pokemon.map((pokemon) => (
-						<li>
+					{type.pokemon.map((pokemon, index) => (
+						<li key={index}>
 							<Link to={`/pokemon/${pokemon.pokemon.name}`}>
 								{FirstToUpper(pokemon.pokemon.name)}
 							</Link>

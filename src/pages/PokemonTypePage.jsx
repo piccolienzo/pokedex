@@ -1,5 +1,7 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { useParams } from "react-router-dom";
+import { Error } from "../components/Error";
+import { Loading } from "../components/Loading";
 import PokemonType from "../components/PokemonType";
 
 export const PokemonTypePage = () => {
@@ -13,6 +15,8 @@ export const PokemonTypePage = () => {
 			if (data.status !== 404) {
 				const type = await data.json();
 				setType(type);
+			} else {
+				setType(null);
 			}
 		};
 		getType();
@@ -23,12 +27,15 @@ export const PokemonTypePage = () => {
 			<div className="col " style={{ maxWidth: "20vw" }}></div>
 			<div className="col-8" style={{ backgroundColor: "white" }}>
 				<div>
-					<h1>Type Info</h1>
-					<Suspense fallback={<h1>Loading Search...</h1>}>
+					<Suspense fallback={<Loading></Loading>}>
 						{type !== undefined ? (
-							<PokemonType type={type}></PokemonType>
+							type !== null ? (
+								<PokemonType type={type}></PokemonType>
+							) : (
+								<Error></Error>
+							)
 						) : (
-							"Parece que lo que buscas no se encuentra por aqui"
+							<Loading></Loading>
 						)}
 					</Suspense>
 				</div>

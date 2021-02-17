@@ -1,11 +1,12 @@
-import React, { useEffect, useState, Suspense } from "react";
+import React, { Suspense } from "react";
 import "../assets/css/TriangleButton.css";
+import { Loading } from "./Loading";
 const PokemonListItem = React.lazy(() => import("./PokemonListItem"));
 
 const PokemonList = (props) => {
 	return (
 		<React.Fragment>
-			<Suspense fallback={<h1>Loading List...</h1>}>
+			<Suspense fallback={<Loading></Loading>}>
 				{props.pokemons.map((pokemon) => (
 					<PokemonListItem pokemon={pokemon}></PokemonListItem>
 				))}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { PokemonLinkListItem } from "./PokemonLinkListItem";
 
@@ -17,13 +17,24 @@ const PokemonListItem = (props) => {
 
 	return (
 		<div>
-			{pokemon !== undefined ? (
-				<Link to={`/pokemon/${pokemon.id}`} style={{ textDecoration: "none" }}>
-					<PokemonLinkListItem pokemon={pokemon}></PokemonLinkListItem>
-				</Link>
-			) : (
-				""
-			)}
+			<Suspense
+				fallback={
+					<div className="spinner-border" role="status">
+						<span className="visually-hidden">Loading...</span>
+					</div>
+				}
+			>
+				{pokemon !== undefined ? (
+					<Link
+						to={`/pokemon/${pokemon.id}`}
+						style={{ textDecoration: "none" }}
+					>
+						<PokemonLinkListItem pokemon={pokemon}></PokemonLinkListItem>
+					</Link>
+				) : (
+					""
+				)}
+			</Suspense>
 		</div>
 	);
 };
