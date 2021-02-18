@@ -26,6 +26,7 @@ export const PokemonSearch = () => {
 						onChange={handleChange}
 						value={search}
 						placeholder="Poke Search"
+						autocomplete="off"
 					></input>
 					<button className="btn btn-dark" style={{}} type="submit">
 						Search
