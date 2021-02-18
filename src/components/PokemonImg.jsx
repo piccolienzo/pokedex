@@ -19,7 +19,7 @@ export const PokemonImg = (props) => {
 			<img
 				className="img-fluid"
 				style={{ width: "30vw", minWidth: "45vw" }}
-				alt={`${pokemon.name} Pokemon  no available`}
+				alt={`${pokemon.name} Pokemon image no available`}
 				src={noImage}
 			></img>
 		);

@@ -1,4 +1,5 @@
 import React from "react";
+import noImage from "../assets/img/no_image.png";
 
 export const PokemonLinkListItem = (props) => {
 	return (
@@ -8,16 +9,29 @@ export const PokemonLinkListItem = (props) => {
 		>
 			<div className="row g-0">
 				<div className="col-md-4 text-center">
-					<img
-						className="r"
-						style={{ width: "100%" }}
-						alt="Pokemon List Item"
-						src={
-							props.pokemon["sprites"]["other"]["official-artwork"][
-								"front_default"
-							]
-						}
-					></img>
+					{null !==
+					props.pokemon["sprites"]["other"]["official-artwork"][
+						"front_default"
+					] ? (
+						<img
+							className="r"
+							style={{ width: "100%", borderRadius: "10px" }}
+							alt="Pokemon List Item"
+							src={
+								props.pokemon["sprites"]["other"]["official-artwork"][
+									"front_default"
+								]
+							}
+						></img>
+					) : (
+						<img
+							className="r"
+							style={{ width: "100%", borderRadius: "10px" }}
+							alt="Pokemon List Item"
+							alt={`${props.pokemon.name} Pokemon no available`}
+							src={noImage}
+						></img>
+					)}
 				</div>
 				<div className="col-md-8">
 					<div className="card-body ">
